@@ -70,11 +70,13 @@ class test(APIView):
 #注销
 class Logout(APIView):
     def get(self, request):
+        response = BaseResponse()
         try:
             del request.session['login']
         except KeyError:
             pass
-        return HttpResponse("You're logged out.")
+        #return HttpResponse("You're logged out.")
+        return Response(response.dict)
 
 class Index(APIView):
     def get(self, request):
