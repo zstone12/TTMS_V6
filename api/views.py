@@ -26,13 +26,14 @@ class Reg(APIView):
         username = receive.get('username')
         password = receive.get('password')
         re_password = receive.get('re_password')
+        email = receive.get('email')
         if password == re_password:
-            obj = models.User.objects.create(username=username, password=password)
+            obj = models.User.objects.create(username=username, password=password,email=email)
             response.msg = '注册成功'
             response.code = 2000
         else:
             response.msg = '注册失败'
-            response.code = 2000
+            response.code = 2001
         return Response(response.dict)
 
 
@@ -45,6 +46,7 @@ class Login(APIView):
         password = receive.get('password')
         user = models.User.objects.filter(username=username, password=password)
         if user:
+            request.session['login'] = True
             response.msg = "登陆成功"
         else:
             try:
@@ -56,6 +58,28 @@ class Login(APIView):
                 response.code = 1003
         return Response(response.dict)
 
+
 class test(APIView):
-    def get(self,request):
-        return render(request,'apitest.html')
+    def get(self, request):
+        login=request.session.get('login')
+        if login:
+            return render(request, 'apitest.html')
+        else:
+            return HttpResponse('login')
+
+#注销
+class Logout(APIView):
+    def get(self, request):
+        try:
+            del request.session['login']
+        except KeyError:
+            pass
+        return HttpResponse("You're logged out.")
+
+class Index(APIView):
+    def get(self, request):
+        login=request.session.get('login')
+        if login:
+            return render(request, 'indexindex.html')
+        else:
+            return HttpResponse('please login')
