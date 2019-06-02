@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link href="/static/bootstrap/css/bootstrap.css" rel="stylesheet">
+
+    <title>布达佩斯大剧院</title>
+    <style type="text/css">
+
+        .class1 {
+            width:15px;
+            height: 15px;
+            {#margin-left:20px;#}
+            background-color: darkgrey;
+        }
+
+        .class2 {
+            width:15px;
+            height: 15px;
+            background-color: #761c19;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <h1 style="text-align: center; ">座位情况</h1>
+    </div>
+    <div id="div1" style="margin:50px 750px;"></div>
+    <script>
+        var element=document.getElementById("div1");
+        var rows_count = {{ this_scheme.studio.sum_row }};
+        var cols_count = {{ this_scheme.studio.sum_col }};
+        var sid = {{ this_scheme.pk }};
+        for(var i=1;i<=cols_count;i++) {
+            for (var j = 1; j <= rows_count; j++) {
+                var node = document.createElement("a");
+                node.setAttribute("href", "show_ticket?col="+i+"&row="+j+"&sid="+sid);
+                node.setAttribute("class", 'class1 img-thumbnail');
+                node.setAttribute("row", j);
+                node.setAttribute("col", i);
+                var t = document.createTextNode(" ");
+                node.appendChild(t);
+                element.appendChild(node);
+            }
+            element.appendChild(document.createElement("p"));
+        }
+        {#models.Ticket.objects.create(scheme_id=obj.pk, row=i, col=j)#}
+
+
+        {% for sale_tic in saled_tickets %}
+            for(var i=0;i<element.childNodes.length;i++) {
+                var row = Number(element.childNodes[i].getAttribute('row'));
+                var col = Number(element.childNodes[i].getAttribute('col'));
+                var tic_col = {{ sale_tic.col }};
+                var tic_row = {{ sale_tic.row }};
+                if(tic_col==col && tic_row ==row){
+                    element.childNodes[i].setAttribute('href','javascript:void(0);');
+                    element.childNodes[i].setAttribute("class","class2 img-thumbnail");
+                }
+
+            }
+        {% endfor %}
+    </script>
+    <script>
+        {#var element=document.getElementById("div1");#}
+        {##}
+        {#var rows ={{ this_studio.sum_row }};#}
+        {#var cols = {{ this_studio.sum_col }};#}
+        {##}
+        {#for(var i=0;i<rows;i++)#}
+        {#{#}
+        {#    for(var j=0;j<cols;j++)#}
+        {#    {#}
+        {#        var node=document.createElement("a");#}
+                {#创建了a标签#}
+        {#        node.setAttribute("href","#");#}
+        {#        node.setAttribute("class",'class1 img-thumbnail')#}
+        {#        var t=document.createTextNode(" ");#}
+        {#        node.appendChild(t);#}
+        {#        element.appendChild(node);#}
+        {#    }#}
+        {#    element.appendChild(document.createElement("p"));#}
+    </script>
+</body>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>布达佩斯大剧院</title>
+</head>
+<body>
+    <table border="hall-table">
+        <thead>
+        <tr>
+            <th>放映时间</th>
+            <th>放映厅</th>
+            <th>价格</th>
+            <th>选座购票</th>
+        </tr>
+        </thead>
+        <tbody>
+            {% for sl in schemes_list %}
+                <tr>
+                    <th>{{ sl.start_time }}</th>
+                    <th>{{ sl.studio.pk }}号厅</th>
+                    <th>{{ sl.play.price }}</th>
+                    <th><a href="show_schemes/show_seats?sid={{ sl.pk }} ">选座购票</a></th>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+</body>
+</html>

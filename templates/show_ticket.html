@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>布达佩斯大剧院</title>
+</head>
+<body>
+    <h2>影片:{{ obj.scheme.play.name }}</h2>
+    <h2>片长：{{ obj.scheme.play.play_length }}分钟</h2>
+    <h2>影厅：{{ obj.scheme.studio.pk }}号厅</h2>
+    <h2>座位：{{ obj.col }}排{{ obj.row }}座</h2>
+    <h2>开始时间：{{ obj.scheme.start_time }}</h2>
+    <h2>票价：{{ obj.scheme.play.price }}</h2>
+    <h2>售票时间：{{ obj.sale_time }}</h2>
+    <button>确定订单，立即支付</button>
+</body>
+</html>

@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8">
+    <title>布达佩斯大剧院</title>
+</head>
+<body>
+    <form action="add_scheme" method="POST">
+        <select name="play">
+            {% for pl in play_list %}
+                <option value="{{ pl.pk }}">{{ pl.name }}</option>
+            {% endfor %}
+        </select>
+        <select name="studio">
+            {% for sl in studio_list %}
+                <option value="{{ sl.pk }}">{{ sl.pk }}号厅</option>
+            {% endfor %}
+        </select>
+        <select name="year" id="year"></select>
+        <select name="month" id="month"></select>
+        <select name="day" id="day"></select>
+
+        <select name="hour" id ="hour"></select>
+        <select name="minute" id ="minute"></select>
+
+        <input type="submit" value="提交">
+    </form>
+    <script>
+        for(var j=2019;j<2030;j++)
+        {
+            var element=document.getElementById("year");
+            var node=document.createElement("option");
+            node.setAttribute("value",j);
+            var t=document.createTextNode(j);
+            node.appendChild(t);
+            element.appendChild(node);
+        }
+        for(var j=1;j<=12;j++)
+        {
+            var element=document.getElementById("month");
+            var node=document.createElement("option");
+            node.setAttribute("value",j);
+            var t=document.createTextNode(j);
+            node.appendChild(t);
+            element.appendChild(node);
+        }
+        for(var j=1;j<=31;j++)
+        {
+            var element=document.getElementById("day");
+            var node=document.createElement("option");
+            node.setAttribute("value",j);
+            var t=document.createTextNode(j);
+            node.appendChild(t);
+            element.appendChild(node);
+        }
+
+        for(var j=0;j<=23;j++)
+        {
+            var element=document.getElementById("hour");
+            var node=document.createElement("option");
+            node.setAttribute("value",j);
+            var t=document.createTextNode(j);
+            node.appendChild(t);
+            element.appendChild(node);
+        }
+
+        for(var j=0;j<=59;j++)
+        {
+            var element=document.getElementById("minute");
+            var node=document.createElement("option");
+            node.setAttribute("value",j);
+            var t=document.createTextNode(j);
+            node.appendChild(t);
+            element.appendChild(node);
+        }
+
+    </script>
+</body>
+</html>
