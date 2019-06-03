@@ -25,7 +25,7 @@ SECRET_KEY = '*!o-rn_skb9z^^io*_+6zgv*2n9q%!rfo*&5v-snoz=cc@6d)h'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['129.204.185.247']
 
 
 # Application definition
@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'app01.apps.App01Config',
     'rest_framework',
+    'corsheaders',
 ]
 
 MIDDLEWARE = [
@@ -50,7 +51,8 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-]
+        'corsheaders.middleware.CorsMiddleware',
+    ]
 
 ROOT_URLCONF = 'TTMS_V6.urls'
 
@@ -126,3 +128,10 @@ STATICFILES_DIRS = (os.path.join(BASE_DIR, 'static'),)
 PROJECT_ROOT = os.path.abspath(os.path.join(os.path.dirname('__file__')))
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
+# CORS
+CORS_ORIGIN_WHITELIST = (
+    '127.0.0.1:8000',
+    'localhost:8000', #凡是出现在白名单中的域名，都可以访问后端接口
+)
+CORS_ALLOW_CREDENTIALS = True
