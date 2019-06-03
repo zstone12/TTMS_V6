@@ -71,7 +71,6 @@ class Logout(APIView):
             del request.session['login']
         except KeyError:
             pass
-        #return HttpResponse("You're logged out.")
         return Response(response.dict)
 
 class Index(APIView):
@@ -81,3 +80,10 @@ class Index(APIView):
             return render(request, 'indexindex.html')
         else:
             return HttpResponse('please login')
+
+class GetPlay(APIView):
+    def get(self,request):
+        plays= models.Play.objects.all()
+        plays_obj = PlaySerializer(plays, many=True)
+        return Response(plays_obj.data)
+
