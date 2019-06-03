@@ -61,11 +61,7 @@ class Login(APIView):
 
 class test(APIView):
     def get(self, request):
-        login=request.session.get('login')
-        if login:
-            return render(request, 'apitest.html')
-        else:
-            return HttpResponse('login')
+        return render(request, 'apitest.html')
 
 #注销
 class Logout(APIView):
