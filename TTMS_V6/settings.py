@@ -130,8 +130,4 @@ MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 # CORS
-CORS_ORIGIN_WHITELIST = (
-    '127.0.0.1:8000',
-    'localhost:8000', #凡是出现在白名单中的域名，都可以访问后端接口
-)
 CORS_ALLOW_CREDENTIALS = True
