@@ -12,3 +12,8 @@ class PlaySerializer(serializers.ModelSerializer):
     class Meta:
         model = models.Play
         fields = '__all__'
+
+class SchemeSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = models.Scheme
+        fields = '__all__'

@@ -22,5 +22,16 @@
 
     <a href="/api/app01/logout">注销</a>
 </form>
+
+<form action="/api/app01/addplay" method="post">
+    {% csrf_token %}
+    <input type="text" name="name">
+    <input type="text" name="brief_info">
+    <input type="text" name="play_length">
+    <input type="text" name="price">
+    <input type="text" name="image">
+
+    <input type="submit" value="新增影片">
+</form>
 </body>
 </html>

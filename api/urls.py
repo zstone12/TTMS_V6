@@ -10,5 +10,12 @@ urlpatterns = [
     path('/indexindex',Index.as_view()),
 
     path('/getplay',GetPlay.as_view()),
+    path('/addplay',AddPlay.as_view()),
+    path('/updateplay',UpdatePlay.as_view()),
+    path('/delplay',DelPlay.as_view()),
 
+    path('/getscheme',GetScheme.as_view()),
+    path('/addscheme',AddScheme.as_view()),
+    path('/updatescheme',UpdateScheme.as_view()),
+    path('/delplay',DelPlay.as_view()),
 ]
