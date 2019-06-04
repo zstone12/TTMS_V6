@@ -87,3 +87,26 @@ class GetPlay(APIView):
         plays_obj = PlaySerializer(plays, many=True)
         return Response(plays_obj.data)
 
+
+class AddPlay(APIView):
+    def post(self,request):
+        response = BaseResponse()
+        receive = request.data
+        name = receive.get('name')
+        brief_info = receive.get('brief_info')
+        play_length = receive.get('play_length')
+        price = receive.get('price')
+        image = receive.get('image')
+        try:
+            models.Play.objects.create(name=name,
+                                   brief_info=brief_info,
+                                   play_length=play_length,
+                                   price=price,
+                                   image=image,)
+            response.msg = "新增成功"
+        except Exception as e:
+            response.msg = "新增失败"
+        return Response(response.dict)
+
+
+
