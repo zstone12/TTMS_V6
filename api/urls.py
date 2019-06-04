@@ -18,4 +18,16 @@ urlpatterns = [
     path('/addscheme',AddScheme.as_view()),
     path('/updatescheme',UpdateScheme.as_view()),
     path('/delscheme',DelPlay.as_view()),
+
+    path('/getstudio',GetStudio.as_view()),
+    path('/addstudio',AddStudio.as_view()),
+    path('/updatestudio',UpdateStudio.as_view()),
+    path('/delstudio', DelStudio.as_view()),
+
+    path('/getticket',GetTicket.as_view()),
+    path('/addticket',AddTicket.as_view()),
+    path('/updateticket',UpdateTicket.as_view()),
+    path('/delticket',DelTicket.as_view()),
+
+
 ]

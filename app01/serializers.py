@@ -13,7 +13,20 @@ class PlaySerializer(serializers.ModelSerializer):
         model = models.Play
         fields = '__all__'
 
+
 class SchemeSerializer(serializers.ModelSerializer):
     class Meta:
         model = models.Scheme
+        fields = '__all__'
+
+
+class StudioSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = models.Studio
+        fields = '__all__'
+
+
+class TicketSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = models.Ticket
         fields = '__all__'

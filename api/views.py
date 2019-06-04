@@ -181,7 +181,7 @@ class AddScheme(APIView):
         start_time = receive.get('start_time')
         play = receive.get('play_id')
         studio = receive.get('stu_id')
-        print(start_time,play,studio)
+        print(start_time, play, studio)
         try:
             models.Scheme.objects.create(
                 start_time=start_time,
@@ -222,6 +222,152 @@ class DelScheme(APIView):
         id = receive.get('id')
         try:
             models.Scheme.objects.filter(pk=id).delete()
+            response.msg = "删除成功"
+        except Exception as e:
+            response.msg = "删除失败"
+        return Response(response.dict)
+
+
+class GetStudio(APIView):
+    def get(self, request):
+        studios = models.Studio.objects.all()
+        studios_obj = StudioSerializer(studios, many=True)
+        return Response(studios_obj.data)
+
+    def post(self, request):
+        receive = request.data
+        pk = receive.get('stu_id')
+        studio = models.Studio.objects.filter(pk=pk)
+        studios_obj = StudioSerializer(studio, many=True)
+        return Response(studios_obj.data)
+
+
+class AddStudio(APIView):
+    def post(self, request):
+        response = BaseResponse()
+        receive = request.data
+
+        sum_row = receive.get('sum_row')
+        sum_col = receive.get('sum_col')
+        # print(start_time, play, studio)
+        print(sum_row, sum_col)
+        try:
+            models.Studio.objects.create(
+                sum_row=sum_row,
+                sum_col=sum_col,
+            )
+            response.msg = "新增成功"
+        except Exception as e:
+            response.msg = "新增失败"
+        return Response(response.dict)
+
+
+class UpdateStudio(APIView):
+    def post(self, request):
+        response = BaseResponse()
+        receive = request.data
+        sum_row = receive.get('sum_row')
+        sum_col = receive.get('sum_col')
+        id = receive.get('stu_id')
+
+        try:
+            obj = models.Studio.objects.get(id=id)
+            obj.sum_row = sum_row
+            obj.sum_col = sum_col
+            obj.save()
+            response.msg = "修改成功"
+        except Exception as e:
+            response.msg = "修改失败"
+        return Response(response.dict)
+
+
+class DelStudio(APIView):
+    def post(self, request):
+        response = BaseResponse()
+        receive = request.data
+        id = receive.get('stu_id')
+        try:
+            models.Studio.objects.filter(pk=id).delete()
+            response.msg = "删除成功"
+        except Exception as e:
+            response.msg = "删除失败"
+        return Response(response.dict)
+
+
+class GetTicket(APIView):
+    def get(self, request):
+        tickets = models.Ticket.objects.all()
+        tickets_obj = TicketSerializer(tickets, many=True)
+        return Response(tickets_obj.data)
+
+    def post(self, request):
+        receive = request.data
+        pk = receive.get('tic_id')
+        ticket = models.Ticket.objects.filter(pk=pk)
+        ticket_obj = TicketSerializer(ticket, many=True)
+        return Response(ticket_obj.data)
+
+
+class AddTicket(APIView):
+    def post(self, request):
+        response = BaseResponse()
+        receive = request.data
+
+        sch_id = receive.get('sch_id')
+        col = receive.get('col')
+        row = receive.get('row')
+        state = receive.get('state')
+        sale_time = receive.get('sale_time')
+        # print(start_time, play, studio)
+        # print(sum_row, sum_col)
+        print(sch_id, col, row, state, sale_time)
+        try:
+            models.Ticket.objects.create(
+                scheme_id=sch_id,
+                col=col,
+                row=row,
+                state=state,
+                sale_time=sale_time,
+            )
+            response.msg = "新增成功"
+        except Exception as e:
+            response.msg = "新增失败"
+        return Response(response.dict)
+
+
+class UpdateTicket(APIView):
+    def post(self, request):
+        response = BaseResponse()
+        receive = request.data
+
+        id= receive.get('tic_id')
+        sch_id = receive.get('sch_id')
+        col = receive.get('col')
+        row = receive.get('row')
+        state = receive.get('state')
+        sale_time = receive.get('sale_time')
+
+        print(id,sch_id,col,row,state,sale_time)
+        try:
+            obj = models.Ticket.objects.get(id=id)
+            obj.sch_id = sch_id
+            obj.col = col
+            obj.row = row
+            obj.state = state
+            obj.sale_time = sale_time
+            obj.save()
+            response.msg = "修改成功"
+        except Exception as e:
+            response.msg = "修改失败"
+        return Response(response.dict)
+
+class DelTicket(APIView):
+    def post(self, request):
+        response = BaseResponse()
+        receive = request.data
+        id = receive.get('tic_id')
+        try:
+            models.Ticket.objects.filter(pk=id).delete()
             response.msg = "删除成功"
         except Exception as e:
             response.msg = "删除失败"
