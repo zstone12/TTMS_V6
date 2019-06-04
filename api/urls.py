@@ -17,5 +17,5 @@ urlpatterns = [
     path('/getscheme',GetScheme.as_view()),
     path('/addscheme',AddScheme.as_view()),
     path('/updatescheme',UpdateScheme.as_view()),
-    path('/delplay',DelPlay.as_view()),
+    path('/delscheme',DelPlay.as_view()),
 ]

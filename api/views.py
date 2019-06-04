@@ -181,6 +181,7 @@ class AddScheme(APIView):
         start_time = receive.get('start_time')
         play = receive.get('play_id')
         studio = receive.get('stu_id')
+        print(start_time,play,studio)
         try:
             models.Scheme.objects.create(
                 start_time=start_time,
