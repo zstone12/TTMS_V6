@@ -318,7 +318,7 @@ class AddTicket(APIView):
         row = receive.get('row')
         state = receive.get('state')
         sale_time = receive.get('sale_time')
-        # print(start_time, play, studio)
+        # print(start_time,play, studio)
         # print(sum_row, sum_col)
         print(sch_id, col, row, state, sale_time)
         try:

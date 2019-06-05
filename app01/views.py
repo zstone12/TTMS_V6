@@ -3,6 +3,7 @@ from app01 import models
 
 from django.utils import timezone
 
+
 # Create your views here.
 
 def add_scheme(requests):
