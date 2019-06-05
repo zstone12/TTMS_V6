@@ -372,3 +372,10 @@ class DelTicket(APIView):
         except Exception as e:
             response.msg = "删除失败"
         return Response(response.dict)
+
+class GetPic(APIView):
+    def get(self,request):
+        data =['http://129.204.185.247:8000/media/lun/1.jpg',
+               'http://129.204.185.247:8000/media/lun/2.jpg',
+               'http://129.204.185.247:8000/media/lun/3.jpg',]
+        return Response(data)

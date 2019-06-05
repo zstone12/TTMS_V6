@@ -29,5 +29,8 @@ urlpatterns = [
     path('/updateticket',UpdateTicket.as_view()),
     path('/delticket',DelTicket.as_view()),
 
+    path('/getpic',GetPic.as_view()),
+
+
 
 ]
