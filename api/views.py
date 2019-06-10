@@ -127,6 +127,7 @@ class AddPlay(APIView):
         director = receive.get('director')
         actor = receive.get('actor')
         play_type = receive.get('play_type')
+
         print(name, brief_info, play_length, price, director, actor,
               play_type)
         try:
@@ -336,6 +337,7 @@ class GetTicket(APIView):
             data['time'] = tic.sale_time
             data['studio'] = tic.scheme.studio_id
             data['play_type'] = tic.scheme.play.play_type
+            data['price'] = tic.scheme.play.price
             list_a.append(data)
             data = {}
         # tickets_obj = TicketSerializer(tickets, many=True)
@@ -344,9 +346,16 @@ class GetTicket(APIView):
     def post(self, request):
         receive = request.data
         pk = receive.get('tic_id')
-        ticket = models.Ticket.objects.filter(pk=pk)
-        ticket_obj = TicketSerializer(ticket, many=True)
-        return Response(ticket_obj.data)
+        tic = models.Ticket.objects.filter(pk=pk)
+        data={}
+        data['ticid'] = tic.id
+        data['name'] = tic.scheme.play.name
+        data['time'] = tic.sale_time
+        data['studio'] = tic.scheme.studio_id
+        data['play_type'] = tic.scheme.play.play_type
+        data['price'] = tic.scheme.play.price
+
+        return Response(data)
 
 
 class AddTicket(APIView):
