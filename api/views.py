@@ -33,9 +33,9 @@ class Reg(APIView):
         re_password = receive.get('re_password')
         email = receive.get('email')
         user = models.User.objects.filter(username=username)
-        if user: # 存在这个用户名的用户
-            response.msg='已存在该用户'
-            response.code='2002'
+        if user:  # 存在这个用户名的用户
+            response.msg = '已存在该用户'
+            response.code = '2002'
         else:
             if password == re_password:
                 obj = models.User.objects.create(username=username, password=password, email=email)
@@ -127,14 +127,14 @@ class AddPlay(APIView):
         director = receive.get('director')
         actor = receive.get('actor')
         play_type = receive.get('play_type')
-        print(name,brief_info,play_length,price,image,director,actor,
-                play_type)
+        print(name, brief_info, play_length, price, director, actor,
+              play_type)
         try:
             models.Play.objects.create(name=name,
                                        brief_info=brief_info,
                                        play_length=play_length,
                                        price=price,
-                                
+
                                        director=director,
                                        actor=actor,
                                        play_type=play_type,
@@ -171,7 +171,7 @@ class UpdatePlay(APIView):
         actor = receive.get('actor')
         play_type = receive.get('play_type')
 
-        #print(id, name, brief_info, play_length, price, image)
+        # print(id, name, brief_info, play_length, price, image)
         try:
             obj = models.Play.objects.get(id=id)
             print(obj.name)
@@ -179,9 +179,9 @@ class UpdatePlay(APIView):
             obj.brief_info = brief_info
             obj.play_length = play_length
             obj.price = price
-            obj.director=director
-            obj.actor=actor
-            obj.play_type=play_type
+            obj.director = director
+            obj.actor = actor
+            obj.play_type = play_type
             obj.save()
             response.msg = "修改成功"
         except Exception as e:
@@ -327,8 +327,19 @@ class DelStudio(APIView):
 class GetTicket(APIView):
     def get(self, request):
         tickets = models.Ticket.objects.all()
-        tickets_obj = TicketSerializer(tickets, many=True)
-        return Response(tickets_obj.data)
+        response = BaseResponse()
+        list_a = []
+        data = {}
+        for tic in tickets:
+            data['ticid'] = tic.id
+            data['name'] = tic.scheme.play.name
+            data['time'] = tic.sale_time
+            data['studio'] = tic.scheme.studio_id
+            data['play_type'] = tic.scheme.play.play_type
+            list_a.append(data)
+            data = {}
+        # tickets_obj = TicketSerializer(tickets, many=True)
+        return Response(list_a)
 
     def post(self, request):
         receive = request.data
@@ -414,7 +425,7 @@ class GetPic(APIView):
 
 
 class GetSaleTic(APIView):
-    def post(self,request):
+    def post(self, request):
         response = BaseResponse()
         receive = request.data
         scheme_id = receive.get('scheme_id')
