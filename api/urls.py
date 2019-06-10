@@ -30,7 +30,6 @@ urlpatterns = [
     path('delticket',DelTicket.as_view()),
 
     path('getpic',GetPic.as_view()),
-
-
+    path('getsaledtic',GetSaleTic.as_view()),
 
 ]

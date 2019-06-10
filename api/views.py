@@ -413,3 +413,12 @@ class GetPic(APIView):
                 'http://129.204.185.247:8000/media/lun/3.jpg', ]
         return Response(data)
 
+
+class GetSaleTic(APIView):
+    def post(self,request):
+        response = BaseResponse()
+        receive = request.data
+        scheme_id = receive.get('scheme_id')
+        saled_tic = models.Ticket.objects.filter(scheme_id=scheme_id)
+        ticket_obj = TicketSerializer(saled_tic, many=True)
+        return Response(ticket_obj)
