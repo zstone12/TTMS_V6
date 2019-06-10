@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="19ae7477-15cb-4e65-b687-d350cc4ac3e5" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/deeda7be-ed67-442a-83fa-58358242183c.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/deeda7be-ed67-442a-83fa-58358242183c.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/api/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/api/views.py" afterDir="false" />
     </list>
@@ -96,8 +95,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/api/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="182">
-              <caret line="127" column="36" selection-start-line="127" selection-start-column="35" selection-end-line="127" selection-end-column="36" />
+            <state relative-caret-position="150">
+              <caret line="348" column="57" selection-start-line="348" selection-start-column="57" selection-end-line="348" selection-end-column="57" />
               <folding>
                 <element signature="e#0#49#0" expanded="true" />
               </folding>
@@ -221,8 +220,7 @@
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="-36" />
-    <option name="y" value="40" />
+    <option name="x" value="46" />
     <option name="width" value="1366" />
     <option name="height" value="768" />
   </component>
@@ -243,11 +241,6 @@
               <item name="TTMS_V6" type="b2602c69:ProjectViewProjectNode" />
               <item name="TTMS_V6" type="462c0819:PsiDirectoryNode" />
               <item name="api" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="TTMS_V6" type="b2602c69:ProjectViewProjectNode" />
-              <item name="TTMS_V6" type="462c0819:PsiDirectoryNode" />
-              <item name="app01" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="TTMS_V6" type="b2602c69:ProjectViewProjectNode" />
@@ -388,7 +381,7 @@
       <workItem from="1560078736069" duration="13462000" />
       <workItem from="1560157591152" duration="783000" />
       <workItem from="1560158449192" duration="36000" />
-      <workItem from="1560158570984" duration="4351000" />
+      <workItem from="1560158570984" duration="5074000" />
     </task>
     <task id="LOCAL-00001" summary="init">
       <created>1559453006540</created>
@@ -537,14 +530,28 @@
       <option name="project" value="LOCAL" />
       <updated>1560169526360</updated>
     </task>
-    <option name="localTasksCounter" value="22" />
+    <task id="LOCAL-00022" summary="shit bug">
+      <created>1560171539134</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1560171539134</updated>
+    </task>
+    <task id="LOCAL-00023" summary="ticket">
+      <created>1560171806173</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1560171806173</updated>
+    </task>
+    <option name="localTasksCounter" value="24" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="94735000" />
+    <option name="totallyTimeSpent" value="95458000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-36" y="40" width="1366" height="768" extended-state="0" />
+    <frame x="46" y="0" width="1366" height="768" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.7709677" visible="true" weight="0.16540785" />
@@ -615,7 +622,8 @@
     <MESSAGE value="update play models" />
     <MESSAGE value="fix bugs" />
     <MESSAGE value="shit bug" />
-    <option name="LAST_COMMIT_MESSAGE" value="shit bug" />
+    <MESSAGE value="ticket" />
+    <option name="LAST_COMMIT_MESSAGE" value="ticket" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -642,12 +650,12 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/api/views.py</url>
-          <line>191</line>
+          <line>192</line>
           <option name="timeStamp" value="10" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/api/views.py</url>
-          <line>247</line>
+          <line>248</line>
           <option name="timeStamp" value="12" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="django-line">
@@ -961,8 +969,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/api/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="182">
-          <caret line="127" column="36" selection-start-line="127" selection-start-column="35" selection-end-line="127" selection-end-column="36" />
+        <state relative-caret-position="150">
+          <caret line="348" column="57" selection-start-line="348" selection-start-column="57" selection-end-line="348" selection-end-column="57" />
           <folding>
             <element signature="e#0#49#0" expanded="true" />
           </folding>

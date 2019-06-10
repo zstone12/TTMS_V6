@@ -346,7 +346,7 @@ class GetTicket(APIView):
     def post(self, request):
         receive = request.data
         pk = receive.get('tic_id')
-        tic = models.Ticket.objects.filter(pk=pk)
+        tic = models.Ticket.objects.filter(pk=pk).first()
         data={}
         data['ticid'] = tic.id
         data['name'] = tic.scheme.play.name
