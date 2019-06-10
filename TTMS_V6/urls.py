@@ -26,7 +26,7 @@ urlpatterns = [
     path('', views.index),
     path('add_scheme',views.add_scheme),
     path('play/', include('app01.urls')),
-    path('api/app01',include('api.urls')),
+    path('api/app01/',include('api.urls')),
     path('test',views.tic),
 
 ]

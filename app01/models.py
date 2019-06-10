@@ -12,6 +12,10 @@ class Play(models.Model):
     # photo = models.ImageField
     image = models.ImageField(upload_to='logo/',default=1)   # 　这里login是目录路径 完整的路径是 /media/logo/图片
     ###
+
+    # 导演
+    # 主演
+    # 类型
     
     
 
@@ -36,6 +40,7 @@ class Ticket(models.Model):
     row = models.IntegerField(default=0)
     state = models.IntegerField(default=0)
     sale_time = models.DateTimeField(default=timezone.now, null=False)
+    # 加用户_id
 
 class User(models.Model):
     username=models.CharField(max_length=200)
