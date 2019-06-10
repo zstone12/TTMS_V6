@@ -10,8 +10,7 @@ class Play(models.Model):
     play_length = models.IntegerField()
     price = models.FloatField(max_length=10)
     # photo = models.ImageField
-    image = models.ImageField(upload_to='logo/', default=1)  # 这里login是目录路径 完整的路径是 /media/logo/图片
-    ###
+    image = models.ImageField(upload_to='logo/', default='/media/logo/gou.jpg')  # 这里login是目录路径 完整的路径是 /media/logo/图片
     director = models.CharField(max_length=20, default='张艺谋')
     actor = models.CharField(max_length=200, default='jfh')
     play_type = models.CharField(max_length=40,default='3D')
