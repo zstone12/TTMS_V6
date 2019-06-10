@@ -251,7 +251,7 @@ class DelScheme(APIView):
         receive = request.data
         id = receive.get('id')
         try:
-            models.Scheme.objects.filter(pk=id).delete()
+            models.Scheme.objects.filter(id=id).delete()
             response.msg = "删除成功"
         except Exception as e:
             response.msg = "删除失败"
