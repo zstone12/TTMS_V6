@@ -14,7 +14,7 @@ class Play(models.Model):
     ###
     director = models.CharField(max_length=20, default='张艺谋')
     actor = models.CharField(max_length=200, default='jfh')
-    type = models.CharField(max_length=40,default='3D')
+    play_type = models.CharField(max_length=40,default='3D')
     # 导演
     # 主演
     # 类型

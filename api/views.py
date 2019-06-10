@@ -125,12 +125,19 @@ class AddPlay(APIView):
         play_length = receive.get('play_length')
         price = receive.get('price')
         image = receive.get('image')
+        director = receive.get('director')
+        actor = receive.get('actor')
+        play_type = receive.get('play_type')
         try:
             models.Play.objects.create(name=name,
                                        brief_info=brief_info,
                                        play_length=play_length,
                                        price=price,
-                                       image=image, )
+                                       image=image,
+                                       director=director,
+                                       actor=actor,
+                                       play_type=play_type,
+                                       )
             response.msg = "新增成功"
         except Exception as e:
             response.msg = "新增失败"
@@ -160,7 +167,11 @@ class UpdatePlay(APIView):
         play_length = receive.get('play_length')
         price = receive.get('price')
         image = receive.get('image')
-        print(id, name, brief_info, play_length, price, image)
+        director = receive.get('director')
+        actor = receive.get('actor')
+        play_type = receive.get('play_type')
+
+        #print(id, name, brief_info, play_length, price, image)
         try:
             obj = models.Play.objects.get(id=id)
             print(obj.name)
@@ -169,6 +180,9 @@ class UpdatePlay(APIView):
             obj.play_length = play_length
             obj.price = price
             obj.image = image
+            obj.director=director
+            obj.actor=actor
+            obj.play_type=play_type
             obj.save()
             response.msg = "修改成功"
         except Exception as e:
