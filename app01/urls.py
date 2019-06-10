@@ -7,4 +7,5 @@ urlpatterns = [
     path('show_schemes',show_shemes),
     path('show_schemes/show_seats',show_seats),
     path('show_schemes/show_ticket',show_ticket),
+
 ]

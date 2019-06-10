@@ -64,5 +64,13 @@ def show_ticket(requests):
     col = requests.GET.get("col")
     row = requests.GET.get("row")
     schemeId = requests.GET.get("sid")
+
     obj = models.Ticket.objects.create(col=col, row=row, scheme_id=schemeId, state=1)
     return render(requests, 'show_ticket.html', {'obj': obj})
+
+
+def tic(requests):
+
+    tic = models.Ticket.objects.filter(scheme__play_id='1')
+    print(tic)
+    return HttpResponse('test')

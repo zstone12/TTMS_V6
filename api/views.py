@@ -3,6 +3,10 @@ from app01 import models
 from rest_framework.views import APIView
 from app01.serializers import *
 from rest_framework.response import Response
+import json
+
+
+# from django.forms.models import model_to_dic
 
 
 # Create your views here.
@@ -23,17 +27,24 @@ class Reg(APIView):
     def post(self, request):
         response = BaseResponse()
         receive = request.data
+        print(receive)
         username = receive.get('username')
         password = receive.get('password')
         re_password = receive.get('re_password')
         email = receive.get('email')
-        if password == re_password:
-            obj = models.User.objects.create(username=username, password=password, email=email)
-            response.msg = '注册成功'
-            response.code = 2000
+        user = models.User.objects.filter(username=username)
+        if user: # 存在这个用户名的用户
+            response.msg='已存在该用户'
+            response.code='2002'
         else:
-            response.msg = '注册失败'
-            response.code = 2001
+            if password == re_password:
+                obj = models.User.objects.create(username=username, password=password, email=email)
+                response.msg = '注册成功'
+                response.code = 2000
+            else:
+                response.msg = '两次密码不同'
+                response.code = 2001
+
         return Response(response.dict)
 
 
@@ -42,8 +53,14 @@ class Login(APIView):
     def post(self, request):
         response = BaseResponse()
         receive = request.data
+        # print(request.GET)
+        # json.loads(request.body.decode())
+        #
         username = receive.get('username')
         password = receive.get('password')
+        # print(request.GET.get('username'))
+        print(request.data)
+        # print(username,password)
         user = models.User.objects.filter(username=username, password=password)
         if user:
             request.session['login'] = True
@@ -340,14 +357,14 @@ class UpdateTicket(APIView):
         response = BaseResponse()
         receive = request.data
 
-        id= receive.get('tic_id')
+        id = receive.get('tic_id')
         sch_id = receive.get('sch_id')
         col = receive.get('col')
         row = receive.get('row')
         state = receive.get('state')
         sale_time = receive.get('sale_time')
 
-        print(id,sch_id,col,row,state,sale_time)
+        print(id, sch_id, col, row, state, sale_time)
         try:
             obj = models.Ticket.objects.get(id=id)
             obj.sch_id = sch_id
@@ -361,6 +378,7 @@ class UpdateTicket(APIView):
             response.msg = "修改失败"
         return Response(response.dict)
 
+
 class DelTicket(APIView):
     def post(self, request):
         response = BaseResponse()
@@ -373,9 +391,11 @@ class DelTicket(APIView):
             response.msg = "删除失败"
         return Response(response.dict)
 
+
 class GetPic(APIView):
-    def get(self,request):
-        data =['http://129.204.185.247:8000/media/lun/1.jpg',
-               'http://129.204.185.247:8000/media/lun/2.jpg',
-               'http://129.204.185.247:8000/media/lun/3.jpg',]
+    def get(self, request):
+        data = ['http://129.204.185.247:8000/media/lun/1.jpg',
+                'http://129.204.185.247:8000/media/lun/2.jpg',
+                'http://129.204.185.247:8000/media/lun/3.jpg', ]
         return Response(data)
+

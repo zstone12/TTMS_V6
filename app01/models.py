@@ -11,6 +11,10 @@ class Play(models.Model):
     price = models.FloatField(max_length=10)
     # photo = models.ImageField
     image = models.ImageField(upload_to='logo/',default=1)   # 　这里login是目录路径 完整的路径是 /media/logo/图片
+    ###
+    
+    
+
 
 
 # 一场演出只能对应一个演出厅
@@ -22,7 +26,6 @@ class Studio(models.Model):
 
 class Scheme(models.Model):
     start_time = models.DateTimeField(default=timezone.now, null=False)
-
     play = models.ForeignKey(Play, on_delete=models.CASCADE, )
     studio = models.ForeignKey(Studio, on_delete=models.CASCADE, )
 

@@ -26,7 +26,8 @@ urlpatterns = [
     path('', views.index),
     path('add_scheme',views.add_scheme),
     path('play/', include('app01.urls')),
-    path('api/app01',include('api.urls'))
+    path('api/app01',include('api.urls')),
+    path('test',views.tic),
 
 ]
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

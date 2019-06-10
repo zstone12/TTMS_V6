@@ -53,7 +53,8 @@
                 var col = Number(element.childNodes[i].getAttribute('col'));
                 var tic_col = {{ sale_tic.col }};
                 var tic_row = {{ sale_tic.row }};
-                if(tic_col==col && tic_row ==row){
+                if(tic_col==col && tic_row ==row)
+                {
                     element.childNodes[i].setAttribute('href','javascript:void(0);');
                     element.childNodes[i].setAttribute("class","class2 img-thumbnail");
                 }
