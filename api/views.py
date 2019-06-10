@@ -124,16 +124,17 @@ class AddPlay(APIView):
         brief_info = receive.get('brief_info')
         play_length = receive.get('play_length')
         price = receive.get('price')
-        image = receive.get('image')
         director = receive.get('director')
         actor = receive.get('actor')
         play_type = receive.get('play_type')
+        print(name,brief_info,play_length,price,image,director,actor,
+                play_type)
         try:
             models.Play.objects.create(name=name,
                                        brief_info=brief_info,
                                        play_length=play_length,
                                        price=price,
-                                       image=image,
+                                
                                        director=director,
                                        actor=actor,
                                        play_type=play_type,
@@ -166,7 +167,6 @@ class UpdatePlay(APIView):
         brief_info = receive.get('brief_info')
         play_length = receive.get('play_length')
         price = receive.get('price')
-        image = receive.get('image')
         director = receive.get('director')
         actor = receive.get('actor')
         play_type = receive.get('play_type')
@@ -179,7 +179,6 @@ class UpdatePlay(APIView):
             obj.brief_info = brief_info
             obj.play_length = play_length
             obj.price = price
-            obj.image = image
             obj.director=director
             obj.actor=actor
             obj.play_type=play_type
