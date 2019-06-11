@@ -449,7 +449,7 @@ class GetUserTic(APIView):
         user_id = receive.get('user_id')
         UserTic = models.Ticket.objects.filter(user=user_id)
         UserTicket = TicketSerializer(UserTic, many=True)
-        return Response(UserTicket)
+        return Response(UserTicket.data)
 
 
 class GetONplay(APIView):
@@ -504,3 +504,11 @@ class GetTicketBySchemeID(APIView):
         saled_ticket = models.Ticket.objects.filter(scheme_id=scheme_id, state=1)
         saled_tickets = TicketSerializer(saled_ticket, many=True)
         return Response(saled_tickets.data)
+
+class GetTicketinfo(APIView):
+    def post(self,request):
+        receive =request.data
+        response = BaseResponse()
+        response.msg='OK'
+        print(receive)
+        return HttpResponse(response.dict)
