@@ -441,3 +441,13 @@ class GetSaleTic(APIView):
         saled_tic = models.Ticket.objects.filter(scheme_id=scheme_id)
         ticket_obj = TicketSerializer(saled_tic, many=True)
         return Response(ticket_obj)
+
+
+class GetUserTic(APIView):
+    def post(self,request):
+
+        receive = request.data
+        user_id = receive.get('user_id')
+        UserTic = models.Ticket.objects.filter(user=user_id)
+        UserTicket = TicketSerializer(UserTic, many=True)
+        return Response(UserTicket)
