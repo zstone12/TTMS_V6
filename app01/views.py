@@ -74,3 +74,4 @@ def tic(requests):
     tic = models.Ticket.objects.filter(scheme__play_id='1')
     print(tic)
     return HttpResponse('test')
+
