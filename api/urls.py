@@ -31,5 +31,6 @@ urlpatterns = [
 
     path('getpic',GetPic.as_view()),
     path('getsaledtic',GetSaleTic.as_view()),
-    path('gettwoplay',Getpla.as_view()),
+    path('getonplay',GetONplay.as_view()),
+    path('getnotplay',GetNotplay.as_view()),
 ]

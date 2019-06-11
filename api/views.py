@@ -453,14 +453,14 @@ class GetUserTic(APIView):
         return Response(UserTicket)
 
 
-class Getpla(APIView):
+class GetONplay(APIView):
     def get(self,request):
         on_play = models.Play.objects.filter(shangyin=1)
-        noton_play = models.Play.objects.filter(shangyin=0)
-        list_a=[]
-        onPlay = TicketSerializer(on_play, many=True)
-        notonPlay = TicketSerializer(noton_play,many=True)
-        list_a.append(onPlay)
-        list_a.append(notonPlay)
-        return Response(list_a)
+        onPlay = PlaySerializer(on_play, many=True)
+        return Response(onPlay.data)
 
+class GetNotplay(APIView):
+    def get(self,request):
+        noton_play = models.Play.objects.filter(shangyin=0)
+        notonPlay = PlaySerializer(noton_play,many=True)
+        return Response(notonPlay.data)
