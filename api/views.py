@@ -347,7 +347,7 @@ class GetTicket(APIView):
         receive = request.data
         pk = receive.get('tic_id')
         tic = models.Ticket.objects.filter(pk=pk).first()
-        data={}
+        data = {}
         data['ticid'] = tic.id
         data['name'] = tic.scheme.play.name
         data['time'] = tic.sale_time
@@ -444,8 +444,7 @@ class GetSaleTic(APIView):
 
 
 class GetUserTic(APIView):
-    def post(self,request):
-
+    def post(self, request):
         receive = request.data
         user_id = receive.get('user_id')
         UserTic = models.Ticket.objects.filter(user=user_id)
@@ -454,20 +453,21 @@ class GetUserTic(APIView):
 
 
 class GetONplay(APIView):
-    def get(self,request):
+    def get(self, request):
         on_play = models.Play.objects.filter(shangyin=1)
         onPlay = PlaySerializer(on_play, many=True)
         return Response(onPlay.data)
 
+
 class GetNotplay(APIView):
-    def get(self,request):
+    def get(self, request):
         noton_play = models.Play.objects.filter(shangyin=0)
-        notonPlay = PlaySerializer(noton_play,many=True)
+        notonPlay = PlaySerializer(noton_play, many=True)
         return Response(notonPlay.data)
 
 
 class GetshemeByplayID(APIView):
-    def post(self,request):
+    def post(self, request):
         # schemeid
         # 放映时间
         # 类型
@@ -477,21 +477,21 @@ class GetshemeByplayID(APIView):
         receive = request.data
         play_id = receive.get('play_id')
         this_scheme = models.Scheme.objects.filter(play_id=play_id)
-        list_b=[]
+        list_b = []
         data = {}
 
         for sch in this_scheme:
             data['sch_id'] = sch.id
-            #print(sch.id)
+            # print(sch.id)
             data['start_time'] = sch.start_time
             data['play_type'] = sch.play.play_type
             data['studio'] = sch.studio_id
             data['price'] = sch.play.price
-            saled_ticket = models.Ticket.objects.filter(scheme_id=sch.id,state=1).count()
-            sum_ticket = sch.studio.sum_col*sch.studio.sum_row
-            data['seat'] = saled_ticket/sum_ticket
+            saled_ticket = models.Ticket.objects.filter(scheme_id=sch.id, state=1).count()
+            sum_ticket = sch.studio.sum_col * sch.studio.sum_row
+            data['seat_ticket_count'] = saled_ticket
+            data['sum_ticket_count'] = sum_ticket
             list_b.append(data)
             data = {}
         # tickets_obj = TicketSerializer(tickets, many=True)
         return Response(list_b)
-
