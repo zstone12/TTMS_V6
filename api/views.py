@@ -505,10 +505,30 @@ class GetTicketBySchemeID(APIView):
         saled_tickets = TicketSerializer(saled_ticket, many=True)
         return Response(saled_tickets.data)
 
+
 class GetTicketinfo(APIView):
-    def post(self,request):
-        receive =request.data
+    def post(self, request):
+        receive = request.data
         response = BaseResponse()
-        response.msg='OK'
-        print(receive)
+        response.msg = 'OK'
+        sch_id = receive.get('sch_id')
+        selectTicket = receive.get('selectTicket')
+        try:
+            for tic in selectTicket:
+                row = tic['row']
+                col = tic['col']
+                models.Ticket.objects.create(
+                    scheme_id=sch_id,
+                    col=col,
+                    row=row,
+                    state=1,
+                )
+
+            response.msg = "购票成功"
+            response.code = 1002
+
+        except BaseException:
+            response.msg = "购票失败"
+            response.code = 1003
+
         return HttpResponse(response.dict)
