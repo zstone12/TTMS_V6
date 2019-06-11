@@ -33,4 +33,5 @@ urlpatterns = [
     path('getsaledtic',GetSaleTic.as_view()),
     path('getonplay',GetONplay.as_view()),
     path('getnotplay',GetNotplay.as_view()),
+    path('getschemebyplayid',GetshemeByplayID.as_view())
 ]

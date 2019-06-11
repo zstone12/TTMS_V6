@@ -464,3 +464,34 @@ class GetNotplay(APIView):
         noton_play = models.Play.objects.filter(shangyin=0)
         notonPlay = PlaySerializer(noton_play,many=True)
         return Response(notonPlay.data)
+
+
+class GetshemeByplayID(APIView):
+    def post(self,request):
+        # schemeid
+        # 放映时间
+        # 类型
+        # 放映厅
+        # 座位情况(已售/总座位)
+        # 价格
+        receive = request.data
+        play_id = receive.get('play_id')
+        this_scheme = models.Scheme.objects.filter(play_id=play_id)
+        list_b=[]
+        data = {}
+
+        for sch in this_scheme:
+            data['sch_id'] = sch.id
+            #print(sch.id)
+            data['start_time'] = sch.start_time
+            data['play_type'] = sch.play.play_type
+            data['studio'] = sch.studio_id
+            data['price'] = sch.play.price
+            saled_ticket = models.Ticket.objects.filter(scheme_id=sch.id,state=1).count()
+            sum_ticket = models.Ticket.objects.filter(scheme_id=sch.id).count()
+            data['seat'] = saled_ticket/sum_ticket
+            list_b.append(data)
+            data = {}
+        # tickets_obj = TicketSerializer(tickets, many=True)
+        return Response(list_b)
+
