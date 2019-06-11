@@ -28,6 +28,7 @@ urlpatterns = [
     path('play/', include('app01.urls')),
     path('api/app01/',include('api.urls')),
     path('test',views.tic),
+    path('add', views.addlotstic),
 
 ]
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

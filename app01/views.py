@@ -70,8 +70,15 @@ def show_ticket(requests):
 
 
 def tic(requests):
-
     tic = models.Ticket.objects.filter(scheme__play_id='1')
     print(tic)
     return HttpResponse('test')
 
+
+def addlotstic(request):
+    for col in range(6, 9):
+        for row in range(6, 9):
+            schemeId = 19
+            models.Ticket.objects.create(col=col, row=row, scheme_id=schemeId, state=1)
+
+    return HttpResponse("ok")

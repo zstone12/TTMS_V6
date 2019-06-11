@@ -496,10 +496,11 @@ class GetshemeByplayID(APIView):
         # tickets_obj = TicketSerializer(tickets, many=True)
         return Response(list_b)
 
+
 class GetTicketBySchemeID(APIView):
-    def post(self,request):
+    def post(self, request):
         receive = request.data
         scheme_id = receive.get('sch_id')
         saled_ticket = models.Ticket.objects.filter(scheme_id=scheme_id, state=1)
-        saled_tickets = TicketSerializer(saled_ticket,many=True)
+        saled_tickets = TicketSerializer(saled_ticket, many=True)
         return Response(saled_tickets.data)
