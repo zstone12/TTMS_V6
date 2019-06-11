@@ -488,7 +488,7 @@ class GetshemeByplayID(APIView):
             data['studio'] = sch.studio_id
             data['price'] = sch.play.price
             saled_ticket = models.Ticket.objects.filter(scheme_id=sch.id,state=1).count()
-            sum_ticket = models.Ticket.objects.filter(scheme_id=sch.id).count()
+            sum_ticket = sch.studio.sum_col*sch.studio.sum_row
             data['seat'] = saled_ticket/sum_ticket
             list_b.append(data)
             data = {}
