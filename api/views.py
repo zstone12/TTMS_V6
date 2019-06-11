@@ -459,8 +459,8 @@ class Getpla(APIView):
         noton_play = models.Play.objects.filter(shangyin=0)
         list_a=[]
         onPlay = TicketSerializer(on_play, many=True)
-        noton_play = TicketSerializer(noton_play,many=True)
-        list_a.append(on_play)
-        list_a.append(noton_play)
+        notonPlay = TicketSerializer(noton_play,many=True)
+        list_a.append(onPlay)
+        list_a.append(notonPlay)
         return Response(list_a)
 
