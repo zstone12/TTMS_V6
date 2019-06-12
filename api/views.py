@@ -22,6 +22,22 @@ class BaseResponse(object):
         return self.__dict__
 
 
+class IS_login(APIView):
+    def post(self, request):
+        response = BaseResponse()
+        session_key = request.get('session_key')
+
+        if request.session.exists(session_key):
+            response.msg = '已登录'
+            response.code = '200'
+            return APIView(response.dict)
+
+        else:
+            response.msg = '未登录'
+            response.code = '1003'
+            return APIView(response.dict)
+
+
 # 注册
 class Reg(APIView):
     def post(self, request):
@@ -64,8 +80,10 @@ class Login(APIView):
         user = models.User.objects.filter(username=username, password=password)
         if user:
             request.session['login'] = True
+            request.data = []
+            response.data.append(request.session.session_key)
             response.msg = "登陆成功"
-            response.data = username
+            response.data.append(username)
         else:
             try:
                 models.User.objects.get(username=username)
