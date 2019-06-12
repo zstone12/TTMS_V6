@@ -36,7 +36,7 @@ class IS_login(APIView):
         else:
             response.msg = '未登录'
             response.code = '1003'
-            return APIView(response.dict)
+            return Response(response.dict)
 
 
 # 注册
