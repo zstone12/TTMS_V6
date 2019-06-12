@@ -79,11 +79,14 @@ class Login(APIView):
         # print(username,password)
         user = models.User.objects.filter(username=username, password=password)
         if user:
+            if not request.session.session_key:
+                request.session.create()
+            session_id = request.session.session_key
             request.session['login'] = True
-            request.data = []
-            response.data.append(request.session.session_key)
+            response.data = {}
+            response.data['session_id'] = session_id
+            response.data['name'] = username
             response.msg = "登陆成功"
-            response.data.append(username)
         else:
             try:
                 models.User.objects.get(username=username)
