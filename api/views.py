@@ -27,15 +27,15 @@ class IS_login(APIView):
         response = BaseResponse()
         receive = request.data
         session_key = receive.get('session_id')
-
+        response.data = {}
         if request.session.exists(session_key):
-            response.msg = '已登录'
             response.code = '200'
+            response.data['is_login'] = True
             return Response(response.dict)
 
         else:
             response.msg = '未登录'
-            response.code = '1003'
+            response.data['is_login'] = False
             return Response(response.dict)
 
 
