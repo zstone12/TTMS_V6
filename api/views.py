@@ -25,7 +25,7 @@ class BaseResponse(object):
 class IS_login(APIView):
     def post(self, request):
         response = BaseResponse()
-        session_key = request.get('`')
+        session_key = request.get('session_id')
 
         if request.session.exists(session_key):
             response.msg = '已登录'
