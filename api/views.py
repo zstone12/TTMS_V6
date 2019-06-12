@@ -553,4 +553,4 @@ class GetTicketinfo(APIView):
             response.msg = "购票失败"
             response.code = 1003
 
-        return HttpResponse(response.dict)
+        return Response(response.dict)
