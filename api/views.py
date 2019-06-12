@@ -87,6 +87,7 @@ class Login(APIView):
             response.data = {}
             response.data['session_id'] = session_id
             response.data['name'] = username
+            response.data['user_id'] = user.id
             response.msg = "登陆成功"
         else:
             try:
