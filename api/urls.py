@@ -8,6 +8,7 @@ urlpatterns = [
     path('login',Login.as_view()),
     path('logout', Logout.as_view()),
     path('indexindex',Index.as_view()),
+    path('islogin',IS_login.as_view()),
 
     path('getplay',GetPlay.as_view()),
     path('addplay',AddPlay.as_view()),
