@@ -37,4 +37,5 @@ urlpatterns = [
     path('getschemebyplayid',GetshemeByplayID.as_view()),
     path('getticketbyschemeid',GetTicketBySchemeID.as_view()),
     path('buyticket',GetTicketinfo.as_view()),
+    path('getuserticket',GetUserTic.as_view()),
 ]
