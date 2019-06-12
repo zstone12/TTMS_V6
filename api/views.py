@@ -31,7 +31,7 @@ class IS_login(APIView):
         if request.session.exists(session_key):
             response.msg = '已登录'
             response.code = '200'
-            return APIView(response.dict)
+            return Response(response.dict)
 
         else:
             response.msg = '未登录'
