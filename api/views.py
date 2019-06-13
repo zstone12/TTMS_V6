@@ -88,6 +88,7 @@ class Login(APIView):
             response.data['session_id'] = session_id
             response.data['name'] = username
             response.data['user_id'] = user.id
+            response.data['user_email'] = user.email
             response.msg = "登陆成功"
         else:
             try:
@@ -546,7 +547,7 @@ class GetTicketinfo(APIView):
                     col=col,
                     row=row,
                     state=1,
-                    user_id =user_id
+                    user_id=user_id
                 )
 
             response.msg = "购票成功"
