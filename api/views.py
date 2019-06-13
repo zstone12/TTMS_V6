@@ -483,6 +483,7 @@ class GetUserTic(APIView):
             data['row'] = tic.row
             data['col'] = tic.col
             data['price'] = tic.scheme.play.price
+            data['tic_id']= tic.id
             list_b.append(data)
             data = {}
         # tickets_obj = TicketSerializer(tickets, many=True)

@@ -66,8 +66,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/api/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-204">
-              <caret line="473" column="60" selection-start-line="473" selection-start-column="60" selection-end-line="473" selection-end-column="60" />
+            <state relative-caret-position="224">
+              <caret line="485" column="34" selection-start-line="485" selection-start-column="34" selection-end-line="485" selection-end-column="34" />
               <folding>
                 <element signature="e#0#49#0" expanded="true" />
               </folding>
@@ -197,10 +197,11 @@
       <find>lista</find>
       <find>gettic</find>
       <find>addtic</find>
-      <find>user</find>
       <find>getuser</find>
       <find>ticket</find>
       <find>login</find>
+      <find>user</find>
+      <find>usertic</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -408,21 +409,7 @@
       <workItem from="1560158449192" duration="36000" />
       <workItem from="1560158570984" duration="5125000" />
       <workItem from="1560211989413" duration="22338000" />
-      <workItem from="1560338880103" duration="12710000" />
-    </task>
-    <task id="LOCAL-00007" summary="q">
-      <created>1559607419874</created>
-      <option name="number" value="00007" />
-      <option name="presentableId" value="LOCAL-00007" />
-      <option name="project" value="LOCAL" />
-      <updated>1559607419874</updated>
-    </task>
-    <task id="LOCAL-00008" summary="q">
-      <created>1559608299455</created>
-      <option name="number" value="00008" />
-      <option name="presentableId" value="LOCAL-00008" />
-      <option name="project" value="LOCAL" />
-      <updated>1559608299455</updated>
+      <workItem from="1560338880103" duration="13832000" />
     </task>
     <task id="LOCAL-00009" summary="boring api">
       <created>1559619381436</created>
@@ -753,17 +740,31 @@
       <option name="project" value="LOCAL" />
       <updated>1560388133514</updated>
     </task>
-    <option name="localTasksCounter" value="56" />
+    <task id="LOCAL-00056" summary="data update">
+      <created>1560390375149</created>
+      <option name="number" value="00056" />
+      <option name="presentableId" value="LOCAL-00056" />
+      <option name="project" value="LOCAL" />
+      <updated>1560390375149</updated>
+    </task>
+    <task id="LOCAL-00057" summary="data update">
+      <created>1560391559849</created>
+      <option name="number" value="00057" />
+      <option name="presentableId" value="LOCAL-00057" />
+      <option name="project" value="LOCAL" />
+      <updated>1560391559850</updated>
+    </task>
+    <option name="localTasksCounter" value="58" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="130557000" />
+    <option name="totallyTimeSpent" value="131679000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="0" width="1366" height="768" extended-state="6" />
+    <frame x="0" y="312" width="1366" height="768" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.7709677" visible="true" weight="0.25" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.7709677" visible="true" weight="0.25" />
       <window_info id="Structure" order="1" sideWeight="0.22903226" side_tool="true" weight="0.108093716" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -780,7 +781,7 @@
       <window_info anchor="bottom" id="Terminal" order="11" sideWeight="0.49840257" weight="0.35059172" />
       <window_info anchor="bottom" id="Event Log" order="12" sideWeight="0.50151056" side_tool="true" weight="0.32988167" />
       <window_info anchor="bottom" id="Python Console" order="13" weight="0.32988167" />
-      <window_info anchor="bottom" id="File Transfer" order="14" visible="true" weight="0.32840237" />
+      <window_info active="true" anchor="bottom" id="File Transfer" order="14" visible="true" weight="0.32840237" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -1183,8 +1184,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/api/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-204">
-          <caret line="473" column="60" selection-start-line="473" selection-start-column="60" selection-end-line="473" selection-end-column="60" />
+        <state relative-caret-position="224">
+          <caret line="485" column="34" selection-start-line="485" selection-start-column="34" selection-end-line="485" selection-end-column="34" />
           <folding>
             <element signature="e#0#49#0" expanded="true" />
           </folding>
