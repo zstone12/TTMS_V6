@@ -22,7 +22,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = '*!o-rn_skb9z^^io*_+6zgv*2n9q%!rfo*&5v-snoz=cc@6d)h'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ['129.204.185.247', '127.0.0.1', '0.0.0.0']
 
@@ -38,7 +38,8 @@ INSTALLED_APPS = [
     'app01.apps.App01Config',
     'rest_framework',
     'corsheaders',
-]
+    'gunicorn',
+    ]
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
