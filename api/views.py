@@ -472,8 +472,21 @@ class GetUserTic(APIView):
         receive = request.data
         user_id = receive.get('user_id')
         UserTic = models.Ticket.objects.filter(user=user_id)
-        UserTicket = TicketSerializer(UserTic, many=True)
-        return Response(UserTicket.data)
+        list_b = []
+        data = {}
+
+        for tic in UserTic:
+            # 剧目名称、演出厅、开始时间、座位、票价、
+            data['play_name']= tic.scheme.play.name
+            data['studio'] = tic.scheme.studio.id
+            data['studio'] = tic.scheme.start_time
+            data['row'] = tic.row
+            data['col'] = tic.col
+            data['price'] = tic.scheme.play.price
+            list_b.append(data)
+            data = {}
+        # tickets_obj = TicketSerializer(tickets, many=True)
+        return Response(list_b)
 
 
 class GetONplay(APIView):
