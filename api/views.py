@@ -536,6 +536,7 @@ class GetTicketinfo(APIView):
         response.msg = 'OK'
         sch_id = receive.get('sch_id')
         selectTicket = receive.get('selectTicket')
+        user_id = receive.get('user_id')
         try:
             for tic in selectTicket:
                 row = tic['row']
@@ -545,6 +546,7 @@ class GetTicketinfo(APIView):
                     col=col,
                     row=row,
                     state=1,
+                    user_id =user_id
                 )
 
             response.msg = "购票成功"
