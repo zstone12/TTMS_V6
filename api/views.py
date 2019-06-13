@@ -78,7 +78,7 @@ class Login(APIView):
         # print(request.GET.get('username'))
         print(request.data)
         # print(username,password)
-        user = models.User.objects.filter(username=username, password=password)
+        user = models.User.objects.filter(username=username, password=password).first()
         if user:
             if not request.session.session_key:
                 request.session.create()
