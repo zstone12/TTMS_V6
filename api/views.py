@@ -4,8 +4,7 @@ from rest_framework.views import APIView
 from app01.serializers import *
 from rest_framework.response import Response
 import json
-
-
+#from rest_framework_extensions.cache.decorators import cache_response
 # from django.forms.models import model_to_dic
 
 
@@ -127,6 +126,7 @@ class Index(APIView):
 
 
 class GetPlay(APIView):
+    #@cache_response()
     def get(self, request):
         plays = models.Play.objects.all()
         plays_obj = PlaySerializer(plays, many=True)

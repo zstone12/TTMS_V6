@@ -1,5 +1,6 @@
 from django.shortcuts import render, HttpResponse, redirect
 from app01 import models
+from django.views.decorators.cache import cache_page
 
 from django.utils import timezone
 
@@ -33,6 +34,7 @@ def add_scheme(requests):
         return render(requests, 'add_scheme.html', {'play_list': play_list, 'studio_list': studio_list})
 
 
+# @cache_page(60 * 15)
 def index(requests):
     return render(requests, 'index.html')
 

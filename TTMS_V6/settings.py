@@ -28,6 +28,26 @@ ALLOWED_HOSTS = ['129.204.185.247', '127.0.0.1', '0.0.0.0']
 
 # Application definition
 
+
+# CACHES = {
+#     "default": {
+#         "BACKEND": "django_redis.cache.RedisCache",
+#         "LOCATION": "redis://:Zhou1509@127.0.0.1:6379/",
+#         "OPTIONS":
+#         {
+#             "CLIENT_CLASS": "django_redis.client.DefaultClient",
+#         }
+#     },
+#     "session":
+#     {
+#         "BACKEND": "django_redis.cache.RedisCache",
+#         "LOCATION": "redis://127.0.0.1:6379/1",
+#         "OPTIONS":
+#         {
+#             "CLIENT_CLASS": "django_redis.client.DefaultClient",
+#         }
+#     },
+# }
 INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
@@ -38,8 +58,7 @@ INSTALLED_APPS = [
     'app01.apps.App01Config',
     'rest_framework',
     'corsheaders',
-    'gunicorn',
-    ]
+]
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -130,4 +149,4 @@ CORS_ALLOW_CREDENTIALS = True
 CORS_ORIGIN_ALLOW_ALL = True
 
 # warning
-#APPEND_SLASH = False
+# APPEND_SLASH = False
