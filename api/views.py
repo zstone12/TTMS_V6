@@ -479,7 +479,7 @@ class GetUserTic(APIView):
             # 剧目名称、演出厅、开始时间、座位、票价、
             data['play_name']= tic.scheme.play.name
             data['studio'] = tic.scheme.studio.id
-            data['studio'] = tic.scheme.start_time
+            data['start_time'] = tic.scheme.start_time
             data['row'] = tic.row
             data['col'] = tic.col
             data['price'] = tic.scheme.play.price
