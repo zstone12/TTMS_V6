@@ -1,4 +1,49 @@
-# TTMS_V6
-剧院票务管理系统(django+restful+vue)
+# TTMSV5
 
-deployment(nginx+uwsgi)
+URL_Shorter是以flask为基础实现的一个http短链接服务。
+
+
+
+## 导航
+
+- [背景](#背景)
+
+- [安装](#安装)
+- [使用](#使用)
+
+
+
+## 背景
+
+sdaudhsdauhw
+
+ds
+
+
+
+s
+
+
+
+s
+
+
+
+s
+
+s
+
+s
+
+s
+
+s
+
+s
+
+
+
+## 安装
+
+## 使用
+
